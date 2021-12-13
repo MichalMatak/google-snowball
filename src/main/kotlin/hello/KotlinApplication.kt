@@ -46,5 +46,3 @@ data class PlayerState(val x: Int, val y: Int, val direction: String, val score:
 data class Links(val self: Self)
 data class Self(val href: String)
 data class Arena(val dims: List<Int>, val state: Map<String, PlayerState>)
-
-// https://kotlin-springboot-jgjya6uruq-uc.a.run.app
