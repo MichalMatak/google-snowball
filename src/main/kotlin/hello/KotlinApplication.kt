@@ -33,10 +33,14 @@ fun main(args: Array<String>) {
     runApplication<KotlinApplication>(*args)
 }
 
-
 fun strategy(arenaUpdate: ArenaUpdate):String {
     val myState = findMe(arenaUpdate)
-    if (myState == null) return "T"
+    if (myState == null) {
+        return "T"
+    }
+    else if (myState.wasHit){
+        return runAwayFromHit(arenaUpdate, myState)
+    }
     else {
         if (enemyInFront(arenaUpdate, myState)) return "T"
         if (enemyOnRight(arenaUpdate, myState)) return "R"
@@ -107,11 +111,22 @@ fun enemyOnLeft(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
 }
 
 fun isOnEdge(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
-    return (myState.x == 0 && myState.direction == "W")|| 
+    return (myState.x == 0 && myState.direction == "W")||
             (myState.x >= (arenaUpdate.arena.dims[0] - 1) && myState.direction == "E") ||
             (myState.y == 0 && myState.direction == "N") ||
 (            myState.y >= (arenaUpdate.arena.dims[1] - 1) && myState.direction == "S")
 }
+
+fun runAwayFromHit(arenaUpdate: ArenaUpdate, myState: PlayerState): String{
+    return if (!enemyInFront(arenaUpdate, myState)){
+        "W"
+    } else if (!enemyOnRight(arenaUpdate, myState)){
+        "R"
+    } else if (!enemyOnLeft((arenaUpdate, myState)){
+        "L"
+    } else "T"
+}
+
 
 data class ArenaUpdate(val _links: Links, val arena: Arena)
 data class PlayerState(val x: Int, val y: Int, val direction: String, val score: Int, val wasHit: Boolean)
