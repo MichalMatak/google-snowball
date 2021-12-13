@@ -37,8 +37,8 @@ fun strategy(arenaUpdate: ArenaUpdate):String {
     return listOf("R", "T").random()
 }
 
-fun findMe(arenaUpdate: ArenaUpdate):PlayerState {
-    arenaUpdate.arena.state.get("https://kotlin-springboot-jgjya6uruq-uc.a.run.app")
+fun findMe(arenaUpdate: ArenaUpdate):PlayerState? {
+    return arenaUpdate.arena.state.get("https://kotlin-springboot-jgjya6uruq-uc.a.run.app")
 }
 
 data class ArenaUpdate(val _links: Links, val arena: Arena)
