@@ -34,6 +34,7 @@ fun main(args: Array<String>) {
 }
 
 fun strategy(arenaUpdate: ArenaUpdate):String {
+    val myState = findMe(arenaUpdate)
     return listOf("R", "T").random()
 }
 
