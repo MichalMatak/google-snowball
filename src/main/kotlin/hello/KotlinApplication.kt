@@ -35,11 +35,31 @@ fun main(args: Array<String>) {
 
 fun strategy(arenaUpdate: ArenaUpdate):String {
     val myState = findMe(arenaUpdate)
+    if (enemyInFront(arenaUpdate, myState)) return "T" 
     return listOf("R", "T").random()
 }
 
 fun findMe(arenaUpdate: ArenaUpdate):PlayerState? {
     return arenaUpdate.arena.state.get("https://kotlin-springboot-jgjya6uruq-uc.a.run.app")
+}
+
+fun enemyInFront(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
+    if (myState?.direction == "N"){
+        if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 }.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "E"){
+        if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 }.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "S"){
+        if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 }.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "W"){
+        if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 }.isNotEmpty()) return true
+    }
+    return false
 }
 
 data class ArenaUpdate(val _links: Links, val arena: Arena)
