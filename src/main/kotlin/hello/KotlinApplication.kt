@@ -35,8 +35,10 @@ fun main(args: Array<String>) {
 
 fun strategy(arenaUpdate: ArenaUpdate):String {
     val myState = findMe(arenaUpdate)
-    if (enemyInFront(arenaUpdate, myState)) return "T" 
-    return listOf("R", "T").random()
+    if (enemyInFront(arenaUpdate, myState)) return "T"
+    if (enemyOnRight(arenaUpdate, myState)) return "R"
+    if (enemyOnLeft(arenaUpdate, myState)) return "L"
+    return "F"
 }
 
 fun findMe(arenaUpdate: ArenaUpdate):PlayerState? {
@@ -58,6 +60,44 @@ fun enemyInFront(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
 
     if (myState?.direction == "W"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 }.isNotEmpty()) return true
+    }
+    return false
+}
+
+fun enemyOnRight(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
+    if (myState?.direction == "E"){
+        if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 && it.x == myState.x}.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "N"){
+        if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 && it.y == myState.y}.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "W"){
+        if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 && it.x == myState.x}.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "S"){
+        if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 && it.y == myState.y}.isNotEmpty()) return true
+    }
+    return false
+}
+
+fun enemyOnLeft(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
+    if (myState?.direction == "W"){
+        if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 && it.x == myState.x}.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "S"){
+        if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 && it.y == myState.y}.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "E"){
+        if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 && it.x == myState.x}.isNotEmpty()) return true
+    }
+
+    if (myState?.direction == "N"){
+        if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 && it.y == myState.y}.isNotEmpty()) return true
     }
     return false
 }
