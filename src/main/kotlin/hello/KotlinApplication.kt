@@ -46,19 +46,19 @@ fun findMe(arenaUpdate: ArenaUpdate):PlayerState? {
 }
 
 fun enemyInFront(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
-    if (myState?.direction == "N"){
+    if (myState?.direction == "S"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "E"){
+    if (myState?.direction == "W"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 && it.y == myState.y}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "S"){
+    if (myState?.direction == "N"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "W"){
+    if (myState?.direction == "E"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 && it.y == myState.y}.isNotEmpty()) return true
     }
     return false
