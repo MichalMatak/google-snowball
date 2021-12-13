@@ -33,73 +33,84 @@ fun main(args: Array<String>) {
     runApplication<KotlinApplication>(*args)
 }
 
+
 fun strategy(arenaUpdate: ArenaUpdate):String {
     val myState = findMe(arenaUpdate)
-    if (enemyInFront(arenaUpdate, myState)) return "T"
-    if (enemyOnRight(arenaUpdate, myState)) return "R"
-    if (enemyOnLeft(arenaUpdate, myState)) return "L"
-    return "F"
+    if (myState == null) return "T"
+    else {
+        if (enemyInFront(arenaUpdate, myState)) return "T"
+        if (enemyOnRight(arenaUpdate, myState)) return "R"
+        if (enemyOnLeft(arenaUpdate, myState)) return "L"
+        return if (isOnEdge(arenaUpdate, myState)) "R" else "F"
+    }
 }
 
 fun findMe(arenaUpdate: ArenaUpdate):PlayerState? {
-    return arenaUpdate.arena.state.get("https://34.149.205.15.sslip.io")
+    return arenaUpdate.arena.state.get("https://34.149.205.15.sslip.io/")
 }
 
-fun enemyInFront(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
-    if (myState?.direction == "S"){
+fun enemyInFront(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
+    if (myState.direction == "N"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "W"){
+    if (myState.direction == "E"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 && it.y == myState.y}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "N"){
+    if (myState.direction == "S"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "E"){
+    if (myState.direction == "W"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 && it.y == myState.y}.isNotEmpty()) return true
     }
     return false
 }
 
-fun enemyOnRight(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
-    if (myState?.direction == "E"){
+fun enemyOnRight(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
+    if (myState.direction == "E"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "N"){
+    if (myState.direction == "N"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 && it.y == myState.y}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "W"){
+    if (myState.direction == "W"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "S"){
+    if (myState.direction == "S"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 && it.y == myState.y}.isNotEmpty()) return true
     }
     return false
 }
 
-fun enemyOnLeft(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
-    if (myState?.direction == "W"){
+fun enemyOnLeft(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
+    if (myState.direction == "W"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y-1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "S"){
+    if (myState.direction == "S"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x+1 && it.y == myState.y}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "E"){
+    if (myState.direction == "E"){
         if (arenaUpdate.arena.state.filterValues { it.y == myState.y+1 && it.x == myState.x}.isNotEmpty()) return true
     }
 
-    if (myState?.direction == "N"){
+    if (myState.direction == "N"){
         if (arenaUpdate.arena.state.filterValues { it.x == myState.x-1 && it.y == myState.y}.isNotEmpty()) return true
     }
     return false
+}
+
+fun isOnEdge(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
+    return (myState.x == 0 && myState.direction == "W")|| 
+            (myState.x >= (arenaUpdate.arena.dims[0] - 1) && myState.direction == "E") ||
+            (myState.y == 0 && myState.direction == "N") ||
+(            myState.y >= (arenaUpdate.arena.dims[1] - 1) && myState.direction == "S")
 }
 
 data class ArenaUpdate(val _links: Links, val arena: Arena)
