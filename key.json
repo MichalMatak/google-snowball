@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "allegro-hackathon12-2184",
+  "private_key_id": "7ba56fcbe394db9d8fc7bc024d02cb31c33112e1",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCuRJOK8Lq6hbna\nLfqB3ynN0Oc+KmqwkJmsOYonolIufj1P/UFBQbMvDecEnIyvdcmKtsm45uSkl9yJ\nc8caNwtnv0JBwGChg6bTF4y3jRMr4t/HnZRhv1r5sbyamNnohGdRY+3gWrpv5vX1\nrcd5LUE4UPJjwFrEkyDgE4XWyLqkc0r+b0Bu8u06YO6Qj7XCS68TsgNY2Pt0m/Rh\ntu900NHPPxB/5bkbfTSw3uhFmBE2aHvDQcLF/oC5WmD7ybbaSrz+h4fgJSe2WmrK\nfKbLV3f2DWtzdmpCo5nf0QOZvnvrPwAvlMWpNmeQ+ftpxN6kQLhb5wKOMEKbF9PC\nJDSv+5hrAgMBAAECggEAL5AZ8N75J/Vdn1XTPGULRNhSdN4g1mXw+1eNBHpCEdx0\noYNOrx/eZuZVeiW8JBty0YBIGEY0e1PTZlSKL/Z8D2ndDJMUDKEhBBY2WtaPN/go\n+ZNhrzgJ/YJsJom3V8XjaQxsHULGBcq0sMQoYENgvJ0jOuSCIYrCe0X4zoFkp4M3\n9QvMqRoS0ilmoo0tD+FrYoiyZA+uHF/pslJpszzkkxcZee3kRD/b1a4fGPJfdFxw\neRZYXFVt1eX1XK772mkSajzhwYvrPTZO4FHqMehpQGqAIv4Onr5lJZMcJKXt/4W5\niiKXvwRTZzwHr1qYMTg6C7XVgVJyJe8rItoCAPqxQQKBgQDu8FsNiqmiY/NiIOWA\nacCcG3Vr0zGHvpIO5Pg89VDZgCMM6Jc33bm26v78JxAXGWfMaoNQgCIE95oMngn+\nCG9bls/X6ykycvz7QM7osMx0dLYj03nTQQUBKzmZogqGTiOoKDFA+5hOnjKAs1iq\n2UUTBNOGUWm+HqvzGb0PRLfpywKBgQC6thPUtJaFeIX0HQ7tjkONifYFJ/AKVJ21\n4clcA+RxgP3dXPN6LvLn7qLXc5++XTycqXAf014iUOdP2UV9O6N3OgPMi93gjTxu\nSJ522K88OfheWHAYBKdJFnt7FpoH8OTFY691tp5rrayhjNBAC/Qr0TeQHVjLYfCF\nVQwfm8W34QKBgEhKSAIM1c3f1570vPrhA/k3BYud1fpv2djPxZsLzW5AqloZdMbe\nOnXxGzxGxUN32EOsZhZQ7fn6v4zZs8Q74RUgx7lX2Jr+1zNdJDyaYQFK3mBwdwdH\nQLBd14t3zx9bPMZ/godal3YRvs3ZdRYbrh5W83hL4WY3+WYPf3fDHrGJAoGAf3NK\nlievl+xtg/VR+1bhRfyms15PvL2F6mH10ZnWlqQ2pqSMjxr9NNTw06FZqdh7R3Vh\n1Fe0KjiPrTHi/Vl4fCpd7YKMMnw2hBGOGhJPjA0GPWChI8QJbRqrr5n+Cu2lPBiP\n7Qp7mYU0EhLNFOsUAdUO2JEvy6VPSbSEUg9DKAECgYB8aRWH9TFgeAQ42Gqox2A1\nBZvMxDdsk8z1sltvTII4pUNt/JQPtIvxK0YgeX6KTKKNRSqV9eb90E6e7BFPSyyB\nDHCQT2ZwM6H/Rb/nKcfNYXPbR2hvmZUKZY1O1utrANqp7IOXW7QwxRG5g9dZwrJm\n3PBY88hp9sZDrS8pPlq40g==\n-----END PRIVATE KEY-----\n",
+  "client_email": "gha-deploy@allegro-hackathon12-2184.iam.gserviceaccount.com",
+  "client_id": "104600048237934142236",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/gha-deploy%40allegro-hackathon12-2184.iam.gserviceaccount.com"
+}
