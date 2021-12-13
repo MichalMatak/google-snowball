@@ -42,7 +42,7 @@ fun strategy(arenaUpdate: ArenaUpdate):String {
 }
 
 fun findMe(arenaUpdate: ArenaUpdate):PlayerState? {
-    return arenaUpdate.arena.state.get("https://kotlin-springboot-jgjya6uruq-uc.a.run.app")
+    return arenaUpdate.arena.state.get("https://34.149.205.15.sslip.io")
 }
 
 fun enemyInFront(arenaUpdate: ArenaUpdate, myState: PlayerState?): Boolean{
