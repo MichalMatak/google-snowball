@@ -122,7 +122,7 @@ fun runAwayFromHit(arenaUpdate: ArenaUpdate, myState: PlayerState): String{
         "W"
     } else if (!enemyOnRight(arenaUpdate, myState)){
         "R"
-    } else if (!enemyOnLeft((arenaUpdate, myState)){
+    } else if (!enemyOnLeft(arenaUpdate, myState)){
         "L"
     } else "T"
 }
