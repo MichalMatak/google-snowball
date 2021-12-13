@@ -38,9 +38,9 @@ fun strategy(arenaUpdate: ArenaUpdate):String {
     if (myState == null) {
         return "T"
     }
-    else if (myState.wasHit){
-        return runAwayFromHit(arenaUpdate, myState)
-    }
+//    else if (myState.wasHit){
+//        return runAwayFromHit(arenaUpdate, myState)
+//    }
     else {
         if (enemyInFront(arenaUpdate, myState)) return "T"
         if (enemyOnRight(arenaUpdate, myState)) return "R"
