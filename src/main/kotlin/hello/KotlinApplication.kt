@@ -119,7 +119,7 @@ fun isOnEdge(arenaUpdate: ArenaUpdate, myState: PlayerState): Boolean{
 
 fun runAwayFromHit(arenaUpdate: ArenaUpdate, myState: PlayerState): String{
     return if (!enemyInFront(arenaUpdate, myState)){
-        "W"
+        "F"
     } else if (!enemyOnRight(arenaUpdate, myState)){
         "R"
     } else if (!enemyOnLeft(arenaUpdate, myState)){
